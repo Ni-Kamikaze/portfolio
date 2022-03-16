@@ -28,7 +28,7 @@ const float = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  background-color: transparent;
+  background-color: #101820ff;
   height: 100vh;
   display: flex;
   align-items: center;

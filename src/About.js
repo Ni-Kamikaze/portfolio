@@ -1,24 +1,29 @@
 import styled, { keyframes } from 'styled-components'
 import { mobile } from './responsible'
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
+import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
-import EmailIcon from '@mui/icons-material/Email'
-
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 const breatheAnimation = keyframes`
   0% { opacity:0.05}
   100% { opacity:1}
 `
+const iconhover = keyframes`
+  0% {
+    transform:translateY(0) scale(1);
+  }
+  100% { 
+    transform:translateY(-20%) scale(1.1);
+  }
+`
 
 const Container = styled.div`
   width: 100%;
-  background-color: transparent;
-  height: 100vh;
-  animation-name: ${breatheAnimation};
-  animation-duration: 2s;
+  background-color: #101820ff;
+  height: 100% !important;
 `
 const Text = styled.h1`
   text-align: center;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #f2aa4cff;
   ${mobile({
     fontSize: '1.4em',
@@ -26,6 +31,8 @@ const Text = styled.h1`
   padding: 5%;
 `
 const Wrapper = styled.div`
+  animation-name: ${breatheAnimation};
+  animation-duration: 2s;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -52,8 +59,8 @@ const Right = styled.div`
 const Skillscont = styled.div`
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  height: 70vh;
+  align-items: flex-end;
+  height: 60%;
 `
 const Skills = styled.div`
   ${mobile({
@@ -73,11 +80,26 @@ const Icons = styled.div`
   color: white;
   display: flex;
   align-items: flex-end;
-  height: 20vh;
+  height: 40%;
+  margin-bottom: 20px;
+`
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    animation-name: ${iconhover};
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
 `
 const About = () => {
   return (
     <Container>
+      <div class='lines'>
+        <div class='line'></div>
+        <div class='line'></div>
+        <div class='line'></div>
+      </div>
       <Wrapper>
         <Left>
           <Skillscont>
@@ -93,15 +115,32 @@ const About = () => {
             </Skills>
           </Skillscont>
           <Icons>
-            <FacebookRoundedIcon />
-            <InstagramIcon style={{ paddingLeft: '10px' }} />
-            <EmailIcon style={{ paddingLeft: '10px' }} />
+            <Link
+              target='_blank'
+              href='https://www.facebook.com/nikausha.mikadze'
+            >
+              <FacebookIcon />
+            </Link>
+            <Link
+              target='_blank'
+              href='https://www.instagram.com/mikadze_nika/'
+            >
+              <InstagramIcon style={{ paddingLeft: '10px' }} />
+            </Link>
+            <Link
+              target='_blank'
+              href='https://www.linkedin.com/in/nika-mikadze-626507234/'
+            >
+              <LinkedInIcon style={{ paddingLeft: '10px' }} />
+            </Link>
           </Icons>
         </Left>
         <Right>
           <Text>
-            Hi, I'm Nika 15 years old, progressive and motivated begginer react
-            developer
+            I'm Nika 15 years old , fast learner and motivated junior react
+            developer with no experience. I have created several projects with
+            react that you can view in projects page. I'm looking for my first
+            job to get some experience.
           </Text>
         </Right>
       </Wrapper>
